@@ -1,0 +1,229 @@
+date & time = Date.now() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/now
+
+
+
+
+
+
+equation
+  name
+  submission
+    date
+    user{
+      user id
+      organisation id
+    }
+    public or private (if private, see access level in organisation table)
+  date verified
+  verification[
+    {
+      staff id
+      decision
+      date & time
+    }
+  ]
+  symbols
+    symbol id
+  functions
+    function id
+  constants
+    constant id
+  status
+  latex
+  svg reference
+  standard units
+  unit prefix (kilo, mega, ...)
+
+symbol
+  name
+  latex
+  svg reference
+  submission
+    date
+    user id
+  date verified
+  verification[
+    {
+      staff id
+      decision
+      date & time
+    }
+  ]
+  status
+
+constant
+  name
+  value
+  standard units
+  latex
+  svg reference
+  submission
+    date
+    user id
+  date verified
+  verification[
+    {
+      staff id
+      decision
+      date & time
+    }
+  ]
+  status
+
+function
+  name
+  latex
+  parameters
+  standard units
+  svg reference
+  submission
+    date
+    user id
+  date verified
+  verification[
+    {
+      staff id
+      decision
+      date & time
+    }
+  ]
+  status
+
+Topics
+  name
+  creation
+    date & time
+    user id
+  assigned staff  
+    user id
+    date & time assigned
+  children[
+    {
+      topic id
+      date when added as children
+      user id (who did it)
+    }
+  ]
+  parent id (for validation)
+
+
+Units (ask Ross)
+  name
+  creation{
+    user id
+    date & time
+  }
+  latex
+  svg
+
+Sheets
+  name
+  creation{
+    date&time
+    user id
+  }
+  update{
+    date & time
+    user id
+  }
+  editors[
+    {
+      user id
+    }
+  ]
+  viewers[
+    {
+      user id
+    }
+  ]
+  Blocks[ (fidure out how to do child blocks)
+    {
+      block id
+      date & time added
+      user id (added by)
+      arguments 
+
+    }
+  ]
+
+Blocks (figure this out)
+  name
+  parameters?
+
+Users
+  name
+  contact[
+    email
+    phone
+    github
+    linkedin
+    etc
+  ]
+  password hash
+  avatar link
+  role (enum)
+  plan{
+    plan id
+    date joined
+    payment details? (figure out how to store details for subscriptions)
+  }
+  created at
+  last active at
+  sheets
+
+Plans
+  name
+  price
+  submission{
+    user id
+    date time
+  }
+
+
+
+Organisations
+  name
+  creation{
+    user id (remains permanent admin unless removed by other admin?)
+    date & time
+  }
+  access levels[
+    {
+      name
+      creation{
+        user id
+        date & time
+      }
+      permissions[ (booleans / enum)
+        create sheets for all teams or just teams that this user is the leader of
+        delete sheets for all teams or just teams that this user is the leader of
+        add members to organisation
+        remove members to organisation
+        add members to team
+        remove members from team
+      ]
+    }
+  ]
+  teams[
+    {
+      name
+      creation{
+        user id
+        date & time
+      }
+      required access level
+    }
+  ]
+  members[
+    {
+      user id
+      access level
+      teams[
+        {
+          team id
+          added by
+          join date & time
+        }
+      ]
+    }
+  ]
