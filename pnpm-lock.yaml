@@ -1,10 +1,12 @@
 lockfileVersion: 5.4
 
 specifiers:
+  dotenv: ^16.0.3
   mongoose: ^6.6.0
   nodemon: ^2.0.19
 
 dependencies:
+  dotenv: 16.0.3
   mongoose: 6.6.0
 
 devDependencies:
@@ -126,6 +128,11 @@ packages:
   /denque/2.1.0:
     resolution: {integrity: sha512-HVQE3AAb/pxF8fQAoiqpvg9i3evqug3hoiwakOyZAwJm+6vZehbkYXZ0l4JxS+I3QxM97v5aaRNhj8v5oBhekw==}
     engines: {node: '>=0.10'}
+    dev: false
+
+  /dotenv/16.0.3:
+    resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
+    engines: {node: '>=12'}
     dev: false
 
   /fill-range/7.0.1:

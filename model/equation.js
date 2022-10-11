@@ -6,13 +6,17 @@ const equationSchema = new Schema({
     type: String,
     required: [true, 'Name is required.']
   },
+
   submission: {
     submission_date:  {
       type: Date,
       default: Date.now(),
     },
+
     user_id: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+
     organisation_id: {type: mongoose.Schema.Types.ObjectId, ref: 'Organisation'},
+
     visability: {
       type: String,
       enum: {
@@ -22,12 +26,15 @@ const equationSchema = new Schema({
       default: 'public',
       required: true
     },
+    
     required: true
   },
+
   date_verified: {
     type: Date,
     default: Date.now(),
   },
+  
   verification: [
     {
       user_id: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
@@ -46,6 +53,7 @@ const equationSchema = new Schema({
       notes: String,
     }
   ],
+
   symbols: {
     type: [
       {
@@ -58,6 +66,7 @@ const equationSchema = new Schema({
     unique: true,
     validate: [notEmpty, 'Symbols are required.'],
   },
+
   constants: {
     type: [
       {
@@ -70,6 +79,7 @@ const equationSchema = new Schema({
     unique: true,
     validate: [notEmpty, 'Constants are required.'],
   },
+
   functions: {
     type: [
       {
@@ -97,7 +107,9 @@ const equationSchema = new Schema({
     type: String,
     required: true
   },
+  
   svg_reference: URL,
+
   standard_units: { 
     type: mongoose.Schema.Types.ObjectId, 
     ref: 'Units',
